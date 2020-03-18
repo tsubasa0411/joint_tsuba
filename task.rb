@@ -5,7 +5,8 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  p names.push("斎藤")
+  names << "斎藤"
+  puts names
 end
 
 def q2
@@ -13,7 +14,7 @@ def q2
   array2 = %w(bird bat tiger)
 
   # 以下に回答を記載
-  puts array = array1.push(array2)
+  puts array = array1 + array2
 end
 
 def q3
@@ -27,7 +28,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.delete(nil)
+  sports.compact
   puts sports
 end
 
@@ -60,7 +61,7 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages.collect!(&:capitalize)
+  programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
@@ -93,8 +94,8 @@ def q11
 
   # 以下に回答を記載
   p "ユーザーの趣味一覧"
-  sport = sports.flatten!.uniq!
-  sport.each.with_index(1) do |spo,i|
+  
+  sports.flatten!.uniq!.each.with_index(1) do |spo,i|
     puts "会員No.#{i} #{spo} "
   end
  
@@ -144,13 +145,13 @@ def q16
   users.each do |user|
 
   p "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
-
   end
+
 end
 
 class UserQ17
   # 以下に回答を記載
-   
+ 
 end
 
 def q17
