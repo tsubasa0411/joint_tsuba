@@ -5,8 +5,7 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names << "斎藤"
-  puts names
+  p names.push("斎藤")
 end
 
 def q2
@@ -14,7 +13,7 @@ def q2
   array2 = %w(bird bat tiger)
 
   # 以下に回答を記載
-  puts array = array1 + array2
+  puts array = array1.push(array2)
 end
 
 def q3
@@ -28,8 +27,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.compact
-  puts sports
+  p sports.compact!
 end
 
 def q5
@@ -61,7 +59,7 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages.map!(&:capitalize)
+  programming_languages.collect!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
@@ -145,13 +143,30 @@ def q16
   users.each do |user|
 
   p "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
-  end
 
+  end
 end
 
 class UserQ17
   # 以下に回答を記載
- 
+   def initialize(**params)
+     @name = params[:name]
+     @age = params[:age]
+     @gender = params[:gender]
+     @admin = params[:admin]
+
+   end
+   
+    def info
+     admin = @admin ? "有り" : "無し"
+      puts <<~TEXT
+      名前：#{@name}
+      年齢：#{@age}
+      性別：#{@gender}
+      管理者権限：#{admin}
+      TEXT
+     
+    end 
 end
 
 def q17
@@ -166,8 +181,19 @@ end
 
 class UserQ18
   # 以下に回答を記載
- 
-
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
+    
+  end
+  def introduce
+    
+    if @age>11
+      "こんにちは,#{@name}と申します。宜しくお願い致します"
+    else
+      "はいさいまいど〜，#{@name}です！！！"
+    end
+end
 end
 
 def q18
@@ -179,27 +205,43 @@ def q18
   puts user2.introduce
 end
 
+
+
+
 class Item
   # 以下を修正して下さい
+  attr_accessor :name
+ def initialize(**params)
+  @name = params[:name]
 
-  def initialize(name)
-    @name = name
-  end
+ end
 end
-
 def q19
   # ここは変更しないで下さい
   book = Item.new(name: "ゼロ秒思考")
   puts book.name
 end
 
+
+
+
 class UserQ20
   # 以下に回答を記載
-
+  attr_accessor :name,:age
+  def initialize(**users)
+    @user = users[:user]
+    @age = users[:age]
+  end
 end
 
 class Zoo
   # 以下に回答を記載
+  def initialize(**zoo)
+   @name = zoo[:name]
+   @entry_fee = zoo[:entry_fee]
+  
+  end
+  #  case @entry_fee
 
 end
 
